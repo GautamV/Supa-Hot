@@ -24,7 +24,8 @@ WORD_PARAMS = [
     'topics',
     'lc',
     'rc',
-    'max'
+    'max',
+    'md'
 ]
 
 SUGGEST_PARAMS = [
