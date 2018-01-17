@@ -41,9 +41,6 @@ common_words = [
 	'what',
 	'where',
 	'in',
-	'bitch',
-	'shit',
-	'in',
 	'just,'
 	'this',
 	'that',
@@ -60,15 +57,15 @@ common_words = [
 def drop_verse(topic=None):
 	if topic is None: 
 		topic = random.choice(default_topics)
-	#print 'topic set to {0}'.format(topic)
 	words = find_words(topic)
+	
 	line = random_phrase(words, default_syllables)
 	line_words = line.split()
 	rhymes = find_rhymes(line_words[-1])
+	
 	verse = line + "\n" 
-	verse = verse + suggest_next_line(line, default_syllables, rhymes, words) + "\n" 
-	verse = verse + suggest_next_line(line, default_syllables, rhymes, words) + "\n" 
-	verse = verse + suggest_next_line(line, default_syllables, rhymes, words) + "\n" 
+	for i in range(3):
+		verse = verse + suggest_next_line(line, default_syllables, rhymes, words) + "\n" 
 	return verse
 
 def suggest_next_line(line, line_syllables=None, rhymes=None, words=None):
